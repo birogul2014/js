@@ -1,0 +1,54 @@
+<style type="text/css">
+	
+h2{
+	direction: rtl;
+}
+	#content{
+
+		direction: rtl;
+	}
+	pre{
+
+
+		padding: 8px 0 12px 20px;
+border-left: 4px solid #566D82;
+margin-bottom: 1.25em;
+background: #0F192A;
+color:white;
+}
+	}
+</style>
+
+<body>
+<h2>instanceof مەشغۇلاتچىسى</h2>
+
+<p id="content">
+	بۇ مەشغۇلاتچىمۇ typeof قا ئازراق ئوخشىشىپ قالىدۇ،بۇمەشغۇلاتچى قۇرۇلمىلىق فۇنكىسيەنى سىلىشتۈرۈش ئۈچۈن قوللىنىلىدۇ،بۇ مەشغۇلاتچى پەقەت ئۆزى قۇرغان ئوبيكىتنى سىلىشتۇرۇشتا قوللانسا بولىدۇ
+</br>
+
+ئۆزى ياسىغان ئوبيكىتنى سىلىشتۇرۇش
+</p>
+<pre>
+function Foo() {}
+function Bar() {}
+Bar.prototype = new Foo();
+
+new Bar() instanceof Bar; // true
+new Bar() instanceof Foo; // true
+
+// This just sets Bar.prototype to the function object Foo,
+// but not to an actual instance of Foo
+Bar.prototype = Foo;
+new Bar() instanceof Foo; // false
+</pre>
+<p id="content">
+instanceof نى تەبئى تىپ بىلەن قوللىنىش
+</p>
+<pre>
+new String('foo') instanceof String; // true
+new String('foo') instanceof Object; // true
+
+'foo' instanceof String; // false
+'foo' instanceof Object; // false
+</pre>
+</body>
